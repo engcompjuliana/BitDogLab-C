@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "author": "Juliana Aparecida da Silva",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 479.6,
+      "left": -204.4,
+      "rotate": 90,
+      "attrs": { "color": "red", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 479.4,
+      "left": -141,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 479.4,
+      "left": -54.6,
+      "rotate": 90,
+      "attrs": { "color": "blue", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 479.4,
+      "left": 22.2,
+      "rotate": 90,
+      "attrs": { "color": "yellow", "xray": "1" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 309.6,
+      "left": -286.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico1",
+      "top": 212.1,
+      "left": -96.25,
+      "rotate": 270,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 272.8,
+      "left": 221.9,
+      "attrs": { "common": "anode" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 397.85,
+      "left": 190.6,
+      "rotate": 180,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 426.35,
+      "left": 192,
+      "rotate": 180,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 455.15,
+      "left": 192,
+      "rotate": 180,
+      "attrs": { "value": "100" }
+    }
+  ],
+  "connections": [
+    [ "bz1:2", "pico1:GP0", "red", [ "v0", "h66.8" ] ],
+    [ "rgb1:COM", "pico1:3V3", "blue", [ "v38", "h-86.3", "v-134.4", "h-316.8" ] ],
+    [ "btn1:2.r", "bz1:1", "green", [ "v67.2", "h-205.6", "v-172.8", "h124.8", "v-48", "h0" ] ],
+    [ "btn2:2.r", "bz1:1", "green", [ "v67.4", "h-269", "v-172.8", "h124.8" ] ],
+    [ "btn3:2.r", "bz1:1", "green", [ "v67.4", "h-355.4", "v-172.8", "h124.8" ] ],
+    [ "btn4:2.r", "bz1:1", "green", [ "v67.4", "h-432.2", "v-172.8", "h124.8" ] ],
+    [ "btn1:1.l", "pico1:GP2", "green", [ "v-48.2", "h15.4" ] ],
+    [ "btn2:1.l", "pico1:GP4", "green", [ "v-48", "h-28.8" ] ],
+    [ "btn3:1.l", "pico1:GP7", "green", [ "v-57.6", "h-57.6" ] ],
+    [ "btn4:1.l", "pico1:GP9", "green", [ "v-76.8", "h-134.4" ] ],
+    [ "pico1:GND.2", "btn2:2.r", "black", [ "v259.2", "h-38.4", "v-76.8" ] ],
+    [ "rgb1:B", "r1:1", "green", [ "v86.4", "h-17.6" ] ],
+    [ "rgb1:G", "r2:1", "green", [ "v0" ] ],
+    [ "rgb1:R", "r3:1", "green", [ "v28.8", "h38.4", "v115.2", "h-28.8", "v-9.6" ] ],
+    [ "r3:2", "pico1:GP11", "green", [ "v0.3", "h-96.2", "v-76.8", "h-96" ] ],
+    [ "r2:2", "pico1:GP12", "green", [ "v-9.3", "h-86.6", "v-48", "h-105.6" ] ],
+    [ "r1:2", "pico1:GP13", "green", [ "v0.3", "h-86.6", "v-38.4", "h-96" ] ]
+  ],
+  "dependencies": {}
+}
